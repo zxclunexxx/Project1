@@ -1,6 +1,117 @@
+//написать простой калькулятор, где вычисления сложения, вычитания, умножения и деления
+//будут происходить в отдельных функиях с возвратом
+//функция
+
 #include <iostream>
 #include <Windows.h>
 
+int Sum(int a, int b)
+{
+	return a + b;
+}
+
+int minus(int a, int b)
+{
+	return a - b;
+}
+
+int umnozhit(int a, int b)
+{
+	return a * b;
+}
+
+double delenie(double a, double b)
+{
+	return a / b;
+}
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+
+	int a = 0, b = 0;
+
+	std::cout << "Введите первое число: ";
+	std::cin >> a;
+
+	std::cout << "Введите второе число: ";
+	std::cin >> b;
+
+	std::cout << "Сложение: " << Sum(a, b) << "\n";
+	std::cout << "Вычитание: " << minus(a, b) << "\n";
+	std::cout << "Умножение: " << umnozhit(a, b) << "\n";
+
+	if (b == 0)
+	{
+		std::cout << "Деление: на ноль делить нельзя\n";
+	}
+	else
+	{
+		std::cout << "Деление: " << delenie(a, b) << "\n";
+	}
+
+	return 0;
+}
+
+
+//функция
+/*
+#include <iostream>
+#include <Windows.h>
+
+
+//тип возврата Имя_Функии(аргументы_функцции, ...)
+//{
+//	тело_функции
+//}
+
+
+void PrintHello()
+{
+	std::cout << "Hello\n";
+	//int a = 10;
+	//std::cout << a;
+}
+
+//void PrintNum(int a)
+void PrintNum(int a, double b)
+{
+	//std::cout << a << "\n";
+
+	a += b;
+	std::cout << a + b << "\n";
+}
+
+int Sum(int a, int b)
+{
+	return a + b;
+}
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	srand(time(NULL));
+	int playerHP = 1;
+
+	//PrintHello();
+
+	//std::cout << a;
+
+	//PrintNum(10);
+
+	//PrintNum(playerHP, 100);
+	//std::cout << playerHP;
+
+	//Sum(5, 10); //15 //в консоль не вывелось ничего
+
+	std::cout << Sum(5, 10); //вывелось 15
+
+	//return 1;
+	return 0;
+}
+*/
 
 
 
