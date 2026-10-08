@@ -1,3 +1,399 @@
+#include <iostream>
+#include <windows.h>
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	srand(time(NULL));
+
+	int CategoryChoice = 0;	//выбор категории
+	int JuiceChoice = 0; //выбор товара из категории
+
+	int TotalPrice = 0; //общая сумма покупки
+	bool IsRunning = true; //работа цикла
+
+	std::cout << "-----------------------------------\n";
+	std::cout << "Добро пожаловать в Соки Александра.\n";
+	std::cout << "-----------------------------------\n";
+	
+	while (IsRunning)
+	{
+		std::cout << "===============================\n";
+		std::cout << "         Главное меню.\n";
+		std::cout << "===============================\n";
+		std::cout << "Выбрите категорию меню: \n";
+		std::cout << "1. Фруктовые соки\n";
+		std::cout << "2. Овощные соки\n";
+		std::cout << "3. Чаи\n";
+		std::cout << "4. Настойки\n";
+		std::cout << "5. Посмотреть корзину и сделать заказ\n";
+		std::cout << "6. Выход\n";
+		std::cout << "\nВведите номер категории (1-6): ";
+		std::cin >> CategoryChoice;
+		std::cout << "\n";
+
+		if (CategoryChoice == 1)
+		{
+			std::cout << "Вы выбрали Фруктовые соки.\n";
+			std::cout << "\n";
+			std::cout << "Выберите сок: \n";
+			std::cout << "1. Яблочный (200 рублей)\n";
+			std::cout << "2. Апельсиновый (150 рублей)\n";
+			std::cout << "3. Абрикосовый (180 рублей)\n";
+			std::cout << "4. Грушевый (160 рублей)\n";
+			std::cout << "\n";
+			std::cout << "Введите номер сока (1-4): ";
+			std::cin >> JuiceChoice;
+			std::cout << "\n";
+
+			if (JuiceChoice == 1)
+			{
+				std::cout << "Вы заказали яблочный сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+				TotalPrice += 200;
+			}
+
+			else if (JuiceChoice == 2)
+			{
+				std::cout << "Вы заказали апельсиновый сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+				TotalPrice += 150;
+			}
+
+			else if (JuiceChoice == 3)
+			{
+				std::cout << "Вы заказали абрикосовый сок. \n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+				TotalPrice += 180;
+			}
+
+			else if (JuiceChoice == 4)
+			{
+				std::cout << "Вы заказали грушевый сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+				TotalPrice += 160;
+			}
+
+			else
+			{
+				std::cout << "Некорректный ввод. Пожалуйста, выберите номер сока от 1 до 4.\n";
+				std::cout << "\n";
+			}
+
+		}
+
+		else if (CategoryChoice == 2)
+		{
+			std::cout << "Вы выбрали Овощные соки.\n";
+			std::cout << "1. Томатный\n";
+			std::cout << "2. Луковый\n";
+			std::cout << "3. Огуречный\n";
+			std::cout << "\n";
+			std::cout << "Введите номер сока (1-3): ";
+			std::cin >> JuiceChoice;
+
+			if (JuiceChoice == 1)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали томатный сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+
+			else if (JuiceChoice == 2)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали луковый сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+
+			else if (JuiceChoice == 3)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали огуречный сок.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+
+			else
+			{	
+				std::cout << "\n";
+				std::cout << "Некорректный ввод. Пожалуйста, выберите номер сока от 1 до 3.\n";
+				std::cout << "\n";
+			}
+		}
+
+		else if (CategoryChoice == 3)
+		{
+			std::cout << "Вы выбрали Чаи.\n";
+			std::cout << "1. Чесночный\n";
+			std::cout << "2. Петрушевый\n";
+			std::cout << "\n";
+			std::cout << "Введите номер чая (1-2): ";
+			std::cin >> JuiceChoice;
+
+			if (JuiceChoice == 1)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали Чесночный чай.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+
+			else if (JuiceChoice == 2)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали Петрушевый чай.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+
+			else
+			{	
+				std::cout << "\n";
+				std::cout << "Некорректный ввод. Пожалуйста, выберите номер сока от 1 до 3.\n";
+				std::cout << "\n";
+			}
+
+		}
+
+		else if (CategoryChoice == 4)
+		{
+			std::cout << "Вы выбрали Настойки.\n";
+			std::cout << "1. Боярышник\n";
+			std::cout << "\n";
+			std::cout << "Введите номер настойки (1-1): ";
+			std::cin >> JuiceChoice;
+			if (JuiceChoice == 1)
+			{	
+				std::cout << "\n";
+				std::cout << "Вы заказали настойку Боярышника.\n";
+				std::cout << "Покупка добавлена в корзину.\n";
+				std::cout << "\n";
+			}
+			else
+			{	
+				std::cout << "\n";
+				std::cout << "Некорректный ввод. Пожалуйста, выберите номер сока от 1 до 3.\n";
+				std::cout << "\n";
+			}
+
+		}
+
+		else if (CategoryChoice == 5)
+		{
+			std::cout << "====================================\n";
+			std::cout << "Ваш заказ успешно оформлен!\n";
+			std::cout << "Итого к оплате: " << TotalPrice << " рублей.\n";
+			std::cout << "Спасибо, что заглянули к Александру!\n";
+			std::cout << "====================================\n";
+			IsRunning = false; 
+			}
+
+			
+		else if (CategoryChoice == 6)
+		{
+			std::cout << "До свидания! Ждем вас снова.\n";
+			IsRunning = false;
+		}
+
+		else
+		{
+			std::cout << "Некорректный ввод. Пожалуйста, выберите номер категории от 1 до 6.\n";
+			std::cout << "\n";
+		}
+
+
+	}
+	return 0;
+}
+
+
+
+
+
+//написать рекурсивную функцию, которая принимает два числа и возвращает их произведение. Нельяз использовать оператор *
+/*
+#include <iostream>
+#include <Windows.h>
+
+int RecMult(int one, int two)
+{
+	if (two == 0)
+	{
+		return 0;
+	}
+
+	return one + RecMult(one, two - 1);
+}
+*/
+
+
+
+
+//рекурсивная функция
+/*
+int Fak(int num)
+{
+	if (num < 0)
+	{
+		return 0;
+	}
+	if (num == 0)
+	{
+		return 1;
+	}
+	return num * Fak(num - 1);
+
+}
+*/
+
+
+
+
+
+//auto substract T1
+/*
+#include <iostream>
+#include <Windows.h>
+
+template <typename T1, typename Alex>
+auto Substruct(T1 one, Alex two)
+{
+	return one - two;
+}
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+
+	Substruct(10, 3);
+	//Substruct("10.78", "3.123");
+
+	return 0;
+}
+*/
+
+
+
+
+
+//создать 3 массива на 4 ячейки типа int, double,char (a-z) 1251
+//создать перегруженную функцию FillArray, которая принимает массив и размер массива.
+//функция заполняет рандомными значениями через rand()
+//по аналогии создать перегруженную функцию ShowArray (double)(rand() % ___)
+/*
+#include <iostream>
+#include <Windows.h>
+
+void FillArray(int arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = rand();
+	}
+}
+
+void FillArray(double arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 100;
+	}
+}
+
+void FillArray(char arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = 'a' + rand() % 26;
+	}
+}
+
+void ShowArray(int arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n";
+}
+
+void ShowArray(double arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n";
+}
+
+void ShowArray(char arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n";
+}
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	srand(time(NULL));
+
+	const int size = 4;
+	int arr1[size];
+	double arr2[size];
+	char arr3[size];
+
+	FillArray(arr1, size);
+	FillArray(arr2, size);
+	FillArray(arr3, size);
+
+	ShowArray(arr1, size);
+	ShowArray(arr2, size);
+	ShowArray(arr3, size);
+
+	return 0;
+}
+*/
+
+
+
+
+
+//перегруженная функция
+/*
+double Sum(double one, double two)
+{
+	return one + two;
+}
+
+int Sum(int one, int two)
+{
+	return one - two;
+}
+
+int main()
+{
+	Sum(3.1, 6.2);
+
+}
+*/
+
+
+
+
+
 //написать простой калькулятор, где вычисления сложения, вычитания, умножения и деления
 //будут происходить в отдельных функиях с возвратом (решение farita)
 /*
@@ -92,6 +488,8 @@ int main()
 	return 0;
 }
 */
+
+
 
 
 
