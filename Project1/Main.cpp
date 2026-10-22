@@ -1,4 +1,263 @@
+//практика строк. система авторизацции пользователя
+#define NOMINMAX
+#include <iostream>
+#include <Windows.h>
+#include <string>
+#include <limits>
+
+int main()
+{
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+
+	std::string auth_login;
+	std::string auth_password;
+
+	std::string reg_login;
+	std::string reg_password;
+
+	int choice;
+	int amount_numbers = 0;
+
+	bool isRegistered = false;
+
+	while (true)
+	{
+		std::cout << "\n===МЕНЮ===\n";
+		std::cout << "1. Регистрация\n";
+		std::cout << "2. Вход\n";
+		std::cout << "3. Выход\n";
+		std::cout << "Выберите действие: ";
+
+		if (!(std::cin >> choice))
+		{
+			std::cin.clear();
+			std::cin.ignore(10000, '\n');
+			continue;
+		}
+
+		std::cin.ignore(10000, '\n');
+
+		if (choice == 1)
+		{
+			while (true)
+			{
+				std::cout << "\n===РЕГИСТРАЦИЯ===\n";
+
+				std::cout << "Введите логин для регистрации: ";
+				std::getline(std::cin, reg_login);
+
+				std::cout << "Введите пароль для регистрации: ";
+				std::getline(std::cin, reg_password);
+
+				if (reg_login.length() < 5 || reg_login.length() > 15)
+				{
+					std::cout << "\nЛогин должен содержать от 5 до 15 символов!\n";
+				}
+				else if (reg_password.length() < 5 || reg_password.length() > 15)
+				{
+					std::cout << "\nПароль должен содержать от 5 до 15 символов!\n";
+				}
+				else
+				{
+					amount_numbers = 0;
+
+					for (int i = 0; i < reg_password.length(); i++)
+					{
+						if (reg_password[i] >= '0' && reg_password[i] <= '9')
+						{
+							amount_numbers++;
+						}
+					}
+
+					if (amount_numbers < 2)
+					{
+						std::cout << "\nПароль должен содержать минимум 2 цифры!\n";
+					}
+					else
+					{
+						isRegistered = true;
+						std::cout << "\nРегистрация прошла успешно!\n";
+						break;
+					}
+				}
+			}
+		}
+
+		else if (choice == 2)
+		{
+			if (isRegistered == false)
+			{
+				std::cout << "\nСначала необходимо зарегистрироваться!\n";
+			}
+			else
+			{
+				while (true)
+				{
+					std::cout << "\n===АВТОРИЗАЦИЯ===\n";
+
+					std::cout << "Введите логин: ";
+					std::getline(std::cin, auth_login);
+
+					std::cout << "Введите пароль: ";
+					std::getline(std::cin, auth_password);
+
+					if (auth_login == reg_login && auth_password == reg_password)
+					{
+						std::cout << "\nПоздравляем! Вы успешно авторизовались!\n";
+						break;
+					}
+					else
+					{
+						std::cout << "\nНеверный логин или пароль!\n";
+						std::cout << "Попробуйте еще раз.\n";
+					}
+				}
+			}
+		}
+
+		else if (choice == 3)
+		{
+			std::cout << "Выход из программы.\n";
+			break;
+		}
+
+		else
+		{
+			std::cout << "Неверный выбор, попробуйте снова.\n";
+		}
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//string getline
+/*
+#define NOMINMAX
+#include <iostream>
+#include <Windows.h>
+#include <string>
+#include <limits>
+
+int main()
+{
+
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251); //CP_UTF8 1251
+	srand(time(NULL));
+
+	std::string one;
+	int num = 0;
+
+	while (true)
+	{	
+		system("cls");
+
+		//откуда_взять_текст, куда_его_положить
+		std::getline(std::cin, one);
+		std::cout << one << std::endl;
+
+		std::cin >> num;
+		std::cout << num << std::endl;
+
+		//std::cin.ignore(); //очистка буфера ввода, чтобы getline() работал корректно после std::cin
+		//std::cin.ignore(32767); //очистка буфера ввода до конца строки
+		//std::cin.ignore(32767, '\n'); //очистка буфера ввода до конца строки, чтобы getline() работал корректно после std::cin
+		
+		//std::cin.ignore(32767, '\n'); //способ №1. не самый лучший
+
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //способ №2. лучший способ очистки буфера ввода после std::cin
+
+		//std::cout << "Введите текст: ";
+		//std::cin >> one;
+		//std::cout << one << std::endl;
+
+		system("pause");
+	}
+
+
+
+	return 0;
+}
+*/
+
+
+
+
+
+
+//string
+/*
+#include <iostream>
+#include <Windows.h>
+int main()
+{
+
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+	srand(time(NULL));
+
+	//ОТЛАДКА
+
+	//std::string name;
+
+	std::string name = "Text 1";
+	std::string one = "\nNew text" + name;
+
+	std::string* ptr = nullptr;
+	ptr = new std::string[5];
+	delete[]ptr;
+
+	std::string arr[5]{ "Apple", "Garlic", "Ivan", "Farit", "Cola" };
+
+	//auto lol = std::fine(arr->begin(), arr->end(), "Ivan");
+
+	//name.erase(1);
+
+	std::string test = "Text";
+	std::string text 2 = "Иван";
+
+	for (int i = 0; i < test.size(); i++)
+	{
+		if (test[i] == 'T')
+		{
+			std::cout << 't';
+		}
+		else
+		{
+			std::cout << test[i];
+		}
+		
+	}
+
+	std::cout << name;
+	std::cout << one;
+
+	return 0;
+}
+*/
+
+
+
+
+
 // 
+/*
 #include <iostream>
 #include <Windows.h>
 
@@ -44,6 +303,8 @@ int main()
 
 	return 0;
 }
+*/
+
 
 
 
